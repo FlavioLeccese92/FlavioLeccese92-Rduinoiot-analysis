@@ -1,0 +1,48 @@
+name: Rduinoiot-jobs
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  push:
+    branches:
+    - main
+jobs:
+  refresh-data:
+# The type of runner that the job will run on
+    runs-on: macos-latest
+    environment: rduinoiot-jobs-environment
+# Load repo and install R
+    steps:
+    - uses: actions/checkout@master
+    - uses: r-lib/actions/setup-r@master
+# Load API key into Renviron
+    - name: Load API key A
+      env:
+        ARDUINO_API_CLIENT_ID: '${{ secrets.ARDUINO_API_CLIENT_ID }}'
+        ARDUINO_API_CLIENT_SECRET: '${{ secrets.ARDUINO_API_CLIENT_SECRET }}'
+      run: |
+        touch .Renviron
+        echo ARDUINO_API_CLIENT_ID="$ARDUINO_API_CLIENT_ID" >> .Renviron
+        echo ARDUINO_API_CLIENT_SECRET="$ARDUINO_API_CLIENT_SECRET" >> .Renviron
+        echo "cat .Renviron"
+        cat .Renviron
+      shell: bash
+# Set-up R
+    - name: Install packages
+      run: |
+        install.packages(c("Rduinoiot", "dplyr", "tibble","lubridate"), repos = "https://cloud.r-project.org")
+      shell: Rscript {0}
+# Run R script
+    - name: Run scheduler
+      run: Rscript jobs/scheduler.R
+
+ # Add new files in data folder, commit along with other modified files, push
+    - name: Commit files
+      run: |
+        git config --local user.name actions-user
+        git config --local user.email "actions@github.com"
+        git add data/*
+        git commit -am "GH ACTION Headlines $(date)"
+        git push origin main
+      env:
+        REPO_KEY: ${{secrets.GITHUB_TOKEN}}
+        username: github-actions
