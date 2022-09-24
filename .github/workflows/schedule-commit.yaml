@@ -1,4 +1,4 @@
-name: Rduinoiot-jobs
+name: rduinoiot-jobs
 on:
   schedule:
     - cron: "*/15 * * * *"
@@ -15,7 +15,7 @@ jobs:
     - uses: actions/checkout@master
     - uses: r-lib/actions/setup-r@master
 # Load API key into Renviron
-    - name: Load API key A
+    - name: Load API key
       env:
         ARDUINO_API_CLIENT_ID: '${{ secrets.ARDUINO_API_CLIENT_ID }}'
         ARDUINO_API_CLIENT_SECRET: '${{ secrets.ARDUINO_API_CLIENT_SECRET }}'
@@ -32,8 +32,8 @@ jobs:
         install.packages(c("Rduinoiot", "dplyr", "tibble","lubridate"), repos = "https://cloud.r-project.org")
       shell: Rscript {0}
 # Run R script
-    - name: Run scheduler
-      run: Rscript jobs/scheduler.R
+    - name: Run refresh-data
+      run: Rscript jobs/refresh-data.R
 
  # Add new files in data folder, commit along with other modified files, push
     - name: Commit files
