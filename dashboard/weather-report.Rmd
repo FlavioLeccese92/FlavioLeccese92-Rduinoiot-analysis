@@ -1,0 +1,82 @@
+---
+title: "Weather report"
+output: 
+  flexdashboard::flex_dashboard:
+    theme:
+      bg: "white"
+      fg: "#007BFF" 
+      primary: "#007BFF"
+      navbar-bg: "#007BFF"
+      base_font:
+        google: Roboto
+      code_font:
+        google: JetBrains Mono
+    social: menu
+    source_code: embed
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(dplyr)
+library(echarts4r)
+library(lubridate)
+# Install thematic and un-comment for themed static plots (i.e., ggplot2)
+# thematic::thematic_rmd()
+```
+```{r functions, include=FALSE}
+source("../code/dashboard-functions.R")
+```
+```{r data, include=FALSE}
+properties_data = readRDS("../data/properties_data.rds") %>%
+  mutate(time = with_tz(time, tzone = "Europe/Berlin"))
+
+```
+
+Home
+===================================== 
+
+Column {data-width=300}
+-----------------------------------------------------------------------
+
+### Humidity
+
+```{r}
+.plot_line_simple(properties_data, "humidity", "ls_group")
+```
+
+### Pressure
+
+```{r}
+.plot_line_simple(properties_data, "pressure", "ls_group")
+```
+
+### Temperature
+
+```{r}
+.plot_line_simple(properties_data, "temperature", "ls_group")
+```
+
+### Light
+
+```{r}
+.plot_line_simple(properties_data, "light", "ls_group")
+```
+
+
+Column {data-width=700 .tabset}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+
+```
+
+### Chart B
+
+```{r}
+
+```
+
