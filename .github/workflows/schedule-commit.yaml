@@ -14,6 +14,11 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - uses: r-lib/actions/setup-r@master
+# Install Pandoc
+    - name: Install Pandoc
+      run: |
+        brew install pandoc
+      shell: bash
 # Load API key into Renviron
     - name: Load API key
       env:
@@ -34,8 +39,8 @@ jobs:
 # Run R refresh-data
     - name: Run refresh-data
       run: Rscript jobs/refresh-data.R
-# Run R refresh-data
-    - name: Run refresh-data
+# Run R deploy-dashboard
+    - name: Run deploy-dashboard
       run: Rscript jobs/deploy-dashboard.R
  # Add new files in data folder, commit along with other modified files, push
     - name: Commit files
