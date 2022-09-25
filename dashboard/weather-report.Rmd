@@ -31,7 +31,6 @@ source("../code/dashboard-functions.R")
 ```{r data, include=FALSE}
 properties_data = readRDS("../data/properties_data.rds") %>%
   mutate(time = with_tz(time, tzone = "Europe/Berlin"))
-
 ```
 
 Home
