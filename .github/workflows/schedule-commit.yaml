@@ -34,7 +34,8 @@ jobs:
 # Set-up R
     - name: Install packages
       run: |
-        install.packages(c("Rduinoiot", "dplyr", "tibble","lubridate", "rmarkdown"), repos = "https://cloud.r-project.org")
+        install.packages(c("Rduinoiot", "dplyr", "tibble","lubridate"), repos = "https://cloud.r-project.org")
+        install.packages(c("rmarkdown", "flexdashboard", "echarts4r"), repos = "https://cloud.r-project.org")
       shell: Rscript {0}
 # Run R refresh-data
     - name: Run refresh-data
