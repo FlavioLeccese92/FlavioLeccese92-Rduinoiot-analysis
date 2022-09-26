@@ -72,7 +72,7 @@ Column {data-width=700 .tabset}
 
 ```{r}
 .plot_line_multiple(properties_data, "humidity", "ls_group_multiple", height = "200%")
-.plot_boxplot(properties_data, "humidity", "ls_group_boxplot", height = "400%")
+.plot_boxplot(properties_data, "humidity", "ls_group_boxplot", height = "350%")
 ```
 
 ### Pressure
@@ -81,7 +81,7 @@ Column {data-width=700 .tabset}
 
 ```{r}
 .plot_line_multiple(properties_data, "pressure", "ls_group_multiple", height = "200%")
-.plot_boxplot(properties_data, "pressure", "ls_group_boxplot", height = "400%")
+.plot_boxplot(properties_data, "pressure", "ls_group_boxplot", height = "350%")
 ```
 
 ### Temperature
@@ -90,7 +90,7 @@ Column {data-width=700 .tabset}
 
 ```{r}
 .plot_line_multiple(properties_data, "temperature", "ls_group_multiple", height = "200%")
-.plot_boxplot(properties_data, "temperature", "ls_group_boxplot", height = "400%")
+.plot_boxplot(properties_data, "temperature", "ls_group_boxplot", height = "350%")
 ```
 
 ### Light
@@ -99,6 +99,6 @@ Column {data-width=700 .tabset}
 
 ```{r}
 .plot_line_multiple(properties_data, "light", "ls_group_multiple", height = "200%")
-.plot_boxplot(properties_data, "light", "ls_group_boxplot", height = "400%")
+.plot_boxplot(properties_data, "light", "ls_group_boxplot", height = "350%")
 ```
 
