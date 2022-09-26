@@ -13,7 +13,6 @@ output:
       code_font:
         google: JetBrains Mono
     social: menu
-    source_code: https://github.com/FlavioLeccese92/Rduinoiot-analysis
     orientation: columns
     vertical_layout: fill
 ---
