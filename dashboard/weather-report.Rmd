@@ -1,5 +1,6 @@
 ---
 title: "Weather report"
+date: "Updated`r format(Sys.time(), '%d %b %Y %Hh:%mm')`"
 output: 
   flexdashboard::flex_dashboard:
     theme:
@@ -12,7 +13,7 @@ output:
       code_font:
         google: JetBrains Mono
     social: menu
-    source_code: embed
+    source_code: https://github.com/FlavioLeccese92/Rduinoiot-analysis
     orientation: columns
     vertical_layout: fill
 ---
@@ -22,12 +23,14 @@ library(flexdashboard)
 library(dplyr)
 library(echarts4r)
 library(lubridate)
+library(shiny)
 # Install thematic and un-comment for themed static plots (i.e., ggplot2)
 # thematic::thematic_rmd()
 ```
 ```{r functions, include=FALSE}
 source("../code/dashboard-functions.R")
 ```
+
 ```{r data, include=FALSE}
 properties_data = readRDS("../data/properties_data.rds") %>%
   mutate(time = with_tz(time, tzone = "Europe/Berlin"))
@@ -68,37 +71,34 @@ Column {data-width=700 .tabset}
 
 ### Humidity
 
-#### Last 4 weeks
 
 ```{r}
-.plot_line_multiple(properties_data, "humidity", "ls_group_multiple", height = "200%")
-.plot_boxplot(properties_data, "humidity", "ls_group_boxplot", height = "350%")
+div(.plot_line_multiple(properties_data, "humidity", "ls_group_multiple"), style = "height: 40%")
+div(style = "height: 5%")
+div(.plot_boxplot(properties_data, "humidity", "ls_group_boxplot"), style = "height: 55%")
 ```
 
 ### Pressure
 
-#### Last 4 weeks
-
 ```{r}
-.plot_line_multiple(properties_data, "pressure", "ls_group_multiple", height = "200%")
-.plot_boxplot(properties_data, "pressure", "ls_group_boxplot", height = "350%")
+div(.plot_line_multiple(properties_data, "pressure", "ls_group_multiple"), style = "height: 40%")
+div(style = "height: 5%")
+div(.plot_boxplot(properties_data, "pressure", "ls_group_boxplot"), style = "height: 55%")
 ```
 
 ### Temperature
 
-#### Last 4 weeks
-
 ```{r}
-.plot_line_multiple(properties_data, "temperature", "ls_group_multiple", height = "200%")
-.plot_boxplot(properties_data, "temperature", "ls_group_boxplot", height = "350%")
+div(.plot_line_multiple(properties_data, "temperature", "ls_group_multiple"), style = "height: 40%")
+div(style = "height: 5%")
+div(.plot_boxplot(properties_data, "temperature", "ls_group_boxplot"), style = "height: 55%")
 ```
 
 ### Light
 
-#### Last 4 weeks
-
 ```{r}
-.plot_line_multiple(properties_data, "light", "ls_group_multiple", height = "200%")
-.plot_boxplot(properties_data, "light", "ls_group_boxplot", height = "350%")
+div(.plot_line_multiple(properties_data, "light", "ls_group_multiple"), style = "height: 40%")
+div(style = "height: 5%")
+div(.plot_boxplot(properties_data, "light", "ls_group_boxplot"), style = "height: 55%")
 ```
 

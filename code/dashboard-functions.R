@@ -39,7 +39,7 @@
     backgroundColor = "transparent",
     tooltip = list(trigger = 'axis',
                    axisPointer = list(type = 'none'),
-                   textStyle = list(fontWeight = 'ligher'))
+                   textStyle = list(fontWeight = 'lighter'))
   )
 
   plot = e_charts(width = width, height = height) %>% e_list(opts)
@@ -86,16 +86,15 @@
                        emphasis = NULL)
   }
   opts = list(
-    grid = list(top = 30, right = 15, left = 50, bottom = 25),
+    title = list(text = "Trend over last 4 weeks by hour", top = 0, left = 15,
+                 textStyle = list(fontWeight = 'lighter', fontSize = 20)),
+    grid = list(top = 45, right = 15, left = 50, bottom = 25),
     xAxis = list(show = TRUE, type = "category", axisLabel = list(interval = 23)),
-    yAxis = list(show = TRUE,
-                 # min = floor(min(temp$mean_y, na.rm = TRUE)*1),
-                 # max = ceiling(max(temp$mean_y, na.rm = TRUE)*1)
-                 scale = TRUE),
+    yAxis = list(show = TRUE, scale = TRUE),
     series = series, backgroundColor = "transparent",
     tooltip = list(trigger = 'axis', axisPointer = list(type = 'none'),
-                   textStyle = list(fontWeight = 'ligher')),
-    legend = list(show = TRUE, textStyle = list(fontWeight = 'ligher'))
+                   textStyle = list(fontWeight = 'lighter')),
+    legend = list(show = TRUE, textStyle = list(fontWeight = 'lighter'), top = 0, right = 0)
   )
 
   plot = e_charts(width = width, height = height) %>% e_list(opts)
@@ -155,14 +154,16 @@
                      tooltip = list(show = FALSE))
 
   opts = list(
-    grid = list(top = 30, right = 15, left = 50, bottom = 25),
+    title = list(text = "Boxplot of last 4 weeks values by hour of day", top = 0, left = 15,
+                 textStyle = list(fontWeight = 'lighter', fontSize = 20)),
+    grid = list(top = 45, right = 15, left = 50, bottom = 25),
     xAxis = list(show = TRUE, type = "category",
                  data = as.list(unique(temp$tday))),
     yAxis = list(show = TRUE, scale = TRUE),
     series = series, backgroundColor = "transparent",
     tooltip = list(trigger = 'axis', axisPointer = list(type = 'none'),
-                   textStyle = list(fontWeight = 'ligher')),
-    legend = list(show = TRUE)
+                   textStyle = list(fontWeight = 'lighter')),
+    legend = list(show = TRUE, top = 0, right = 0)
   )
 
   plot = e_charts(width = width, height = height) %>% e_list(opts)
