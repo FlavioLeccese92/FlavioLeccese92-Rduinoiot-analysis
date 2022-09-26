@@ -63,19 +63,42 @@ Column {data-width=300}
 .plot_line_simple(properties_data, "light", "ls_group")
 ```
 
-
 Column {data-width=700 .tabset}
 -----------------------------------------------------------------------
 
-### Chart A
+### Humidity
+
+#### Last 4 weeks
 
 ```{r}
-
+.plot_line_multiple(properties_data, "humidity", "ls_group_multiple", height = "200%")
+.plot_boxplot(properties_data, "humidity", "ls_group_boxplot", height = "400%")
 ```
 
-### Chart B
+### Pressure
+
+#### Last 4 weeks
 
 ```{r}
+.plot_line_multiple(properties_data, "pressure", "ls_group_multiple", height = "200%")
+.plot_boxplot(properties_data, "pressure", "ls_group_boxplot", height = "400%")
+```
 
+### Temperature
+
+#### Last 4 weeks
+
+```{r}
+.plot_line_multiple(properties_data, "temperature", "ls_group_multiple", height = "200%")
+.plot_boxplot(properties_data, "temperature", "ls_group_boxplot", height = "400%")
+```
+
+### Light
+
+#### Last 4 weeks
+
+```{r}
+.plot_line_multiple(properties_data, "light", "ls_group_multiple", height = "200%")
+.plot_boxplot(properties_data, "light", "ls_group_boxplot", height = "400%")
 ```
 
