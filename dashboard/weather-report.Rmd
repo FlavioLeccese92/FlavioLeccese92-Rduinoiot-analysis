@@ -12,9 +12,11 @@ output:
         google: Roboto
       code_font:
         google: JetBrains Mono
-    social: menu
     orientation: columns
     vertical_layout: fill
+    navbar:
+      - { icon: "fa-linkedin", href: "https://www.linkedin.com/in/flavio-leccese-1645b691/", align: right}
+      - { icon: "fa-github", href: "https://github.com/FlavioLeccese92/Rduinoiot-analysis/blob/main/dashboard/weather-report.Rmd", align: right}
 ---
 
 ```{r setup, include=FALSE}

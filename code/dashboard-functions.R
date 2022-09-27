@@ -14,7 +14,7 @@
   require(echarts4r)
 
   ts_data = properties_data %>% select(time, value = {{y}}) %>% slice_tail(n = last_n) %>%
-    .build_data2(., time, value)
+    mutate(value = round(value, 2)) %>% .build_data2(., time, value)
 
   series = list()
   series[[1]] = list(type = 'line', name = "Value", color = "#007BFF", showSymbol = FALSE, smooth = TRUE,
@@ -32,7 +32,7 @@
                      emphasis = NULL)
 
   opts = list(
-    grid = list(top = 15, right = 100, left = 100, bottom = 15),
+    grid = list(top = 15, right = 75, left = 75, bottom = 15),
     xAxis = list(show = FALSE, type = "time"),
     yAxis = list(show = FALSE, scale = TRUE),
     series = series,
@@ -55,7 +55,7 @@
   require(echarts4r)
 
   temp =
-    properties_data %>% select(time, y = {{y}}) %>%
+    properties_data %>% select(time, y = {{y}}) %>% mutate(y = round(y, 2)) %>%
     mutate(time = with_tz(time, tzone = "Europe/Berlin")) %>%
     group_by(hour = floor_date(time, 'hour')) %>%
     summarise(mean_y = mean(y, na.rm = T), sd_y = sd(y, na.rm = T), .groups = "drop") %>%
@@ -128,7 +128,7 @@
   temp_h_list = list()
   for(h in 1: length(unique(temp_stat$tday))){
     temp_h_list[[h]] = temp_stat %>% filter(tday == unique(temp_stat$tday)[h]) %>%
-      select(min, Q1, median, Q3, max) %>% as.numeric()
+      select(min, Q1, median, Q3, max) %>% as.numeric() %>% round(., 2)
   }
   series[[1]] = list(type = 'boxplot', color = "#007BFF",
                      itemStyle = list(color = "#A8AABC", borderColor = "#007BFF"),
@@ -136,7 +136,7 @@
                      emphasis = NULL)
 
   temp_outlier_list = temp %>% left_join(temp_stat, by = "tday") %>%
-    filter(y <= outlier_lower | y >= outlier_upper) %>% .build_data2(tday, y)
+    filter(y <= outlier_lower | y >= outlier_upper) %>% mutate(y = round(y, 2)) %>% .build_data2(tday, y)
 
   series[[2]] = list(type = 'scatter', color = "#A8AABC",
                      itemStyle = list(color = "#A8AABC", borderColor = "#A8AABC"),
@@ -145,7 +145,7 @@
                      tooltip = list(show = FALSE))
 
   temp_current_list = temp %>% filter(time >= max(as.Date(floor_date(temp$time)))) %>%
-    group_by(tday) %>% summarise(y = median(y)) %>% .build_data2(tday, y)
+    group_by(tday) %>% summarise(y = median(y)) %>% mutate(y = round(y, 2)) %>% .build_data2(tday, y)
 
   series[[3]] = list(type = 'scatter', color = "#007BFF", name = "Current value",
                      itemStyle = list(color = "#007BFF", borderColor = "#007BFF"),
