@@ -49,8 +49,8 @@ img.opacityscale:hover {
 ```{js, echo=FALSE}
 $(document).ready(function() {
   $('#dashboard-container').on('flexdashboard:layoutcomplete', function() {
-    $('.navbar-right').prepend('<a href="https://flavioleccese92.github.io/Rduinoiot/"><img class="opacityscale" height="40" width="35" src="docs/www/rduinoiot-white.png" title= "Go to Rduinoiot package"/></a>');
-    $('.navbar-right').prepend('<a href="https://flavioleccese92.github.io/Rduinoiot-analysis/"><img class="opacityscale" height="35" width="35" src="docs/www/workflowr-white.png" title= "Go back to workflowr dashboard" style="margin-top: 2px;"/></a>');
+    $('.navbar-right').prepend('<a href="https://flavioleccese92.github.io/Rduinoiot/"><img class="opacityscale" height="40" width="35" src="www/rduinoiot-white.png" title= "Go to Rduinoiot package"/></a>');
+    $('.navbar-right').prepend('<a href="https://flavioleccese92.github.io/Rduinoiot-analysis/"><img class="opacityscale" height="35" width="35" src="www/workflowr-white.png" title= "Go back to workflowr dashboard" style="margin-top: 2px;"/></a>');
   });
 })
 ```
