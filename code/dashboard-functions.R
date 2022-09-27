@@ -14,7 +14,7 @@
   require(echarts4r)
 
   ts_data = properties_data %>% select(time, value = {{y}}) %>% slice_tail(n = last_n) %>%
-    mutate(value = round(value, 2)) %>% .build_data2(., time, value)
+    mutate(value = round(value, 4)) %>% .build_data2(., time, value)
 
   series = list()
   series[[1]] = list(type = 'line', name = "Value", color = "#007BFF", showSymbol = FALSE, smooth = TRUE,
@@ -55,7 +55,7 @@
   require(echarts4r)
 
   temp =
-    properties_data %>% select(time, y = {{y}}) %>% mutate(y = round(y, 2)) %>%
+    properties_data %>% select(time, y = {{y}}) %>%
     mutate(time = with_tz(time, tzone = "Europe/Berlin")) %>%
     group_by(hour = floor_date(time, 'hour')) %>%
     summarise(mean_y = mean(y, na.rm = T), sd_y = sd(y, na.rm = T), .groups = "drop") %>%
@@ -63,7 +63,8 @@
     group_by(week) %>% arrange(hour) %>%
     mutate(h_num = paste0(wday(hour, label = TRUE, abbr = TRUE), " h ",
                           format(hour, "%H"))) %>%
-    ungroup()
+    ungroup() %>%
+    mutate(mean_y = round(mean_y, 2), sd_y = round(sd_y, 4))
 
   temp = inner_join(temp %>% distinct(week) %>% arrange(week) %>% slice_tail(n = 4),
                     temp, by = "week")

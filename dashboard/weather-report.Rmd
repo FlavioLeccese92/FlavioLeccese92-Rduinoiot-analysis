@@ -19,14 +19,40 @@ output:
       - { icon: "fa-github", href: "https://github.com/FlavioLeccese92/Rduinoiot-analysis/blob/main/dashboard/weather-report.Rmd", align: right}
 ---
 
+
 ```{r setup, include=FALSE}
 library(flexdashboard)
 library(dplyr)
 library(echarts4r)
 library(lubridate)
-library(shiny)
+library(htmltools)
 # Install thematic and un-comment for themed static plots (i.e., ggplot2)
 # thematic::thematic_rmd()
+```
+
+```{css, echo=FALSE}
+img.opacityscale {
+  margin-left: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition-duration: 0.15s;
+}
+img.opacityscale:hover {
+  opacity: 1.0;
+}
+
+.navbar-author {
+  font-size: small!important;
+}
+```
+```{js, echo=FALSE}
+$(document).ready(function() {
+  $('#dashboard-container').on('flexdashboard:layoutcomplete', function() {
+    $('.navbar-right').prepend('<a href="https://flavioleccese92.github.io/Rduinoiot/"><img class="opacityscale" height="40" width="35" src="../docs/www/rduinoiot-white.png" title= "Go to Rduinoiot package"/></a>');
+    $('.navbar-right').prepend('<a href="https://flavioleccese92.github.io/Rduinoiot-analysis/"><img class="opacityscale" height="35" width="35" src="../docs/www/workflowr-white.png" title= "Go back to workflowr dashboard" style="margin-top: 2px;"/></a>');
+  });
+})
 ```
 
 ```{r data, include=FALSE}
@@ -38,7 +64,7 @@ properties_data = readRDS("../data/properties_data.rds") %>%
 source("../code/dashboard-functions.R")
 ```
 
-Home
+Home {data-icon="fa-home"}
 ===================================== 
 
 Column {data-width=300}
@@ -103,4 +129,3 @@ div(.plot_line_multiple(properties_data, "light", "ls_group_multiple"), style = 
 div(style = "height: 5%")
 div(.plot_boxplot(properties_data, "light", "ls_group_boxplot"), style = "height: 55%")
 ```
-
