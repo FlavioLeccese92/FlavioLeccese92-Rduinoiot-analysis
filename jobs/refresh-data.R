@@ -77,3 +77,6 @@ out = distinct(out)
 ### overwrite old data with new one
 saveRDS(out, "data/properties_data.rds")
 
+### save txt containing last update date
+last_update = format(with_tz(max(out$time), tzone = 'Europe/Berlin'), '%d %b %Y %Hh:%Mm %Z')
+write.table(last_update, file = "data/properties_last_update.txt", sep = "")

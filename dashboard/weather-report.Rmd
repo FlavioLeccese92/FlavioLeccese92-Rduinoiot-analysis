@@ -1,6 +1,6 @@
 ---
 title: "Weather report"
-date: "Updated`r format(Sys.time(), '%d %b %Y %Hh:%mm')`"
+date: "Updated `r as.character(read.table('../data/properties_last_update.txt'))`"
 output: 
   flexdashboard::flex_dashboard:
     theme:
@@ -26,13 +26,14 @@ library(shiny)
 # Install thematic and un-comment for themed static plots (i.e., ggplot2)
 # thematic::thematic_rmd()
 ```
-```{r functions, include=FALSE}
-source("../code/dashboard-functions.R")
-```
 
 ```{r data, include=FALSE}
 properties_data = readRDS("../data/properties_data.rds") %>%
   mutate(time = with_tz(time, tzone = "Europe/Berlin"))
+```
+
+```{r functions, include=FALSE}
+source("../code/dashboard-functions.R")
 ```
 
 Home
