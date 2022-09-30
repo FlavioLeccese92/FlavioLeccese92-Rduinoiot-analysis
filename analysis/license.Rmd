@@ -2,8 +2,7 @@
 title: "License"
 output:
   workflowr::wflow_html:
-    toc: true
-    toc_float: yes
+    toc: false
     theme: flatly
     highlight: textmate
     css: style.css
