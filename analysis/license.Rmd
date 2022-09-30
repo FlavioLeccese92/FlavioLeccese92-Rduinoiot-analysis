@@ -2,7 +2,11 @@
 title: "License"
 output:
   workflowr::wflow_html:
-    toc: false
+    toc: true
+    toc_float: yes
+    theme: flatly
+    highlight: textmate
+    css: style.css
 editor_options:
   chunk_output_type: console
 ---

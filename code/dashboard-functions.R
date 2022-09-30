@@ -8,7 +8,7 @@
 }
 
 .plot_line_simple = function(properties_data, y, plot_group = NULL, last_n = 60,
-                             width = "100%", height = "100%"){
+                             width = "100%", height = "100%", p_color = "#007BFF"){
 
   require(dplyr)
   require(echarts4r)
@@ -17,18 +17,18 @@
     mutate(value = round(value, 4)) %>% .build_data2(., time, value)
 
   series = list()
-  series[[1]] = list(type = 'line', name = "Value", color = "#007BFF", showSymbol = FALSE, smooth = TRUE,
+  series[[1]] = list(type = 'line', name = "Value", color = p_color, showSymbol = FALSE, smooth = TRUE,
                      connectNulls = TRUE, animation = TRUE, data = ts_data,
                      emphasis = NULL)
-  series[[2]] = list(type = 'scatter', name = "Start", color = "#007BFF", animation = TRUE,
+  series[[2]] = list(type = 'scatter', name = "Start", color = p_color, animation = TRUE,
                      data = list(ts_data[[1]]), tooltip = list(show = FALSE),
                      label = list(show = TRUE, position = 'left', fontWeight = 'lighter',
-                                  fontSize = 16, color = "#007BFF", formatter = '{@[1]}'),
+                                  fontSize = 16, color = p_color, formatter = '{@[1]}'),
                      emphasis = NULL)
-  series[[3]] = list(type = 'scatter', name = "End", color = "#007BFF", animation = TRUE,
+  series[[3]] = list(type = 'scatter', name = "End", color = p_color, animation = TRUE,
                      data = list(ts_data[[last_n]]), tooltip = list(show = FALSE),
                      label = list(show = TRUE, position = 'right', fontWeight = 'lighter',
-                                  fontSize = 16, color = "#007BFF", formatter = '{@[1]}'),
+                                  fontSize = 16, color = p_color, formatter = '{@[1]}'),
                      emphasis = NULL)
 
   opts = list(
@@ -49,7 +49,7 @@
 }
 
 .plot_line_multiple = function(properties_data, y, plot_group = NULL,
-                               width = "100%", height = "100%"){
+                               width = "100%", height = "100%", p_color = "#007BFF"){
 
   require(dplyr)
   require(echarts4r)
@@ -70,7 +70,7 @@
                     temp, by = "week")
   series = list()
 
-  temp_color = colorRampPalette(c("#A8AABC", "#007BFF"))(4)
+  temp_color = colorRampPalette(c("#A8AABC", p_color))(4)
   temp_opacity = c(0.4, 0.4, 0.4, 1)
   temp_width = c(2, 2, 2, 4)
   temp_type = c("dashed", "dashed", "dashed", "solid")
@@ -105,7 +105,7 @@
   return(plot)
 }
 .plot_boxplot = function(properties_data, y, plot_group = NULL,
-                         width = "100%", height = "100%"){
+                         width = "100%", height = "100%", p_color = "#007BFF"){
 
   require(dplyr)
   require(echarts4r)
@@ -131,8 +131,8 @@
     temp_h_list[[h]] = temp_stat %>% filter(tday == unique(temp_stat$tday)[h]) %>%
       select(min, Q1, median, Q3, max) %>% as.numeric() %>% round(., 2)
   }
-  series[[1]] = list(type = 'boxplot', color = "#007BFF",
-                     itemStyle = list(color = "#A8AABC", borderColor = "#007BFF"),
+  series[[1]] = list(type = 'boxplot', color = p_color,
+                     itemStyle = list(color = "#A8AABC", borderColor = p_color),
                      animation = TRUE, data = temp_h_list,
                      emphasis = NULL)
 
@@ -148,8 +148,8 @@
   temp_current_list = temp %>% filter(time >= max(as.Date(floor_date(temp$time)))) %>%
     group_by(tday) %>% summarise(y = median(y)) %>% mutate(y = round(y, 2)) %>% .build_data2(tday, y)
 
-  series[[3]] = list(type = 'scatter', color = "#007BFF", name = "Current value",
-                     itemStyle = list(color = "#007BFF", borderColor = "#007BFF"),
+  series[[3]] = list(type = 'scatter', color = p_color, name = "Current value",
+                     itemStyle = list(color = p_color, borderColor = p_color),
                      animation = TRUE, data = temp_current_list,
                      emphasis = NULL, z = 10,
                      tooltip = list(show = FALSE))

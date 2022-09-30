@@ -1,11 +1,67 @@
 ---
-title: "Home"
+title: "Using R to visualize Arduino-iot weather sensor data"
 site: workflowr::wflow_site
 output:
   workflowr::wflow_html:
-    toc: false
+    toc: true
+    toc_float: yes
+    theme: flatly
+    highlight: textmate
+    css: style.css
 editor_options:
   chunk_output_type: console
 ---
+# Motivation
 
-Welcome to my Arduino iot analysis
+I have always been fascinated by the potential of open-source tools interaction, 
+among which `R` (long live `R`!) and lately Arduino.
+
+For those who don't know, **Arduino** is an open-source hardware and software company
+which designs and produces microcontroller kits for the deployment of digital services, 
+both at a professional, hobby and educational level. Furthermore, the community is
+very active and smart.
+
+[**Here**](https://create.arduino.cc/projecthub/){target="_blank"} you can find many projects,
+including Home Automation, Robotics and even more.
+
+![](images/arduino-projects.png)
+
+To me as a data scientist with a statistical background, electronics is a black box, for
+this reason I chose to a 99% plug-and-play solution: Arduino Oplà IoT Kit.
+
+If you want to know more, here's a video introducing you the kit:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/livKtMZQMS8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="margin: 0 auto; display: block; padding: 20px;"></iframe>
+
+The kit comes with 4 integrated sensor measuring **Humidity**, **Pressure**, 
+**Temperature** and **Light**.
+
+Starting to collect data from these sensor is very simple: you just need to deploy 
+an appropriate _sketch_ to the mother board, which can be done through the dedicated IDE or a
+guided procedure.
+
+Once everything is set up, you will have data flowing from sensors to the cloud and
+visibile via a dashboard hosted on [**Arduino Cloud**](https://create.arduino.cc/iot/){target="_blank"},
+free for 12 months with the kit purchase.
+[**Here**](https://create.arduino.cc/iot/dashboards/9d492935-cf9c-4947-83f9-f9426ac1d20b/){target="_blank"}
+ you can access mine to have an idea.
+
+**Data are stored into a cloud database and retrival of data is possible throught an API
+which can be queried, guess what...**
+
+<center><font size="5">**with `R`!**</font></center>
+
+# Project setup
+
+The `R` ecosystem is constantly growing, adding new amazing productive tools such as 
+[**Workflowr**](https://workflowr.github.io/workflowr/){target="_blank"} and
+[**Flexdashboard**](https://pkgs.rstudio.com/flexdashboard/){target="_blank"}, which
+perfectly exploit [**Github actions**](https://github.com/features/actions){target="_blank"}
+in order to automatize their scope.
+
+Furthermore, in order to make it easier to access [**Arduino Iot Cloud API **](https://www.arduino.cc/reference/en/iot/api/){target="_blank"}, I developed an 
+`R` package through [**pkgdown**](https://pkgdown.r-lib.org/){target="_blank"}.
+The package is called [**Rduinoiot**](https://flavioleccese92.github.io/Rduinoiot/){target="_blank"} and can be found on `CRAN`.
+
+![](images/environment-setup.png)
+
