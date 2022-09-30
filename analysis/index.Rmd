@@ -134,7 +134,7 @@ Then, if you are ready to put it online, simply choose which analysis you want t
 publish and run the following:
 
 ```{r eval=FALSE, include=TRUE}
-wflow_publish(c("analysis/index.Rmd", "weather-report.Rmd")
+wflow_publish(c("analysis/index.Rmd", "analysis/license.Rmd"))
 ```
 
 ## Structure site file `_site.yml`
