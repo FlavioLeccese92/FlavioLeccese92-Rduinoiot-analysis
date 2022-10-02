@@ -378,7 +378,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2022-09-30
+<strong>Last updated:</strong> 2022-10-02
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -469,16 +469,16 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomFlavioLeccese92Rduinoiotanalysistreed3e8e5902479576da1678cb983ea7db70071c872targetblankd3e8e59a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/FlavioLeccese92/Rduinoiot-analysis/tree/d3e8e5902479576da1678cb983ea7db70071c872" target="_blank">d3e8e59</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomFlavioLeccese92Rduinoiotanalysistreed00239e4723dfb797782d3c28c0b0fc003e57db0targetblankd00239ea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/FlavioLeccese92/Rduinoiot-analysis/tree/d00239e4723dfb797782d3c28c0b0fc003e57db0" target="_blank">d00239e</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomFlavioLeccese92Rduinoiotanalysistreed3e8e5902479576da1678cb983ea7db70071c872targetblankd3e8e59a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomFlavioLeccese92Rduinoiotanalysistreed00239e4723dfb797782d3c28c0b0fc003e57db0targetblankd00239ea" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/FlavioLeccese92/Rduinoiot-analysis/tree/d3e8e5902479576da1678cb983ea7db70071c872" target="_blank">d3e8e59</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/FlavioLeccese92/Rduinoiot-analysis/tree/d00239e4723dfb797782d3c28c0b0fc003e57db0" target="_blank">d00239e</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -525,6 +525,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/FlavioLeccese92/Rduinoiot-analysis/blob/d00239e4723dfb797782d3c28c0b0fc003e57db0/analysis/index.Rmd" target="_blank">d00239e</a>
+</td>
+<td>
+FlavioLeccese92
+</td>
+<td>
+2022-10-02
+</td>
+<td>
+wflow_publish(“analysis/index.Rmd”)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/FlavioLeccese92/Rduinoiot-analysis/c0ec671642a356ca5597dbb62aa87ba3b947a1f1/docs/index.html" target="_blank">c0ec671</a>
+</td>
+<td>
+FlavioLeccese92
+</td>
+<td>
+2022-09-30
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -853,8 +887,10 @@ the first commit
 </div>
 <div id="workflowr" class="section level1">
 <h1>Workflowr</h1>
-<p><a href="https://workflowr.github.io/workflowr/" target="_blank"><strong>Workflowr</strong></a> is an <code>R</code> package that supports you in creating an <strong>organized</strong>, <strong>reproducible</strong> and <strong>shareable</strong> project.</p>
+<p><a href="https://workflowr.github.io/workflowr/" target="_blank"><strong>Workflowr</strong></a> is an <code>R</code> package that supports you in creating an <strong>organized</strong>, <strong>reproducible</strong> and <strong>shareable</strong> project on <strong>Github</strong> or <strong>Gitlab</strong>.</p>
 <p>Practically speaking, when opening RStudio to start a new project, if you have Worflowr installed, you will see a new option. By chosing it, you are creating automatically a git-versioned project with organized subdirectories.</p>
+<p>To tell Worflowr which git account to use, run the function:</p>
+<pre class="r"><code>wflow_git_config(user.name = &quot;Full Name&quot;, user.email = &quot;email@domain&quot;)</code></pre>
 <p>Then you can create rmarkdown analyses and make them accessible by a customizable website hosted for free on Github or Gitlab.</p>
 <p>The two type of files relevant for a workflowr site are <code>*.Rmd</code>s and <code>_site.yml</code>.</p>
 <div id="analysis-files-.rmd" class="section level2">
@@ -881,14 +917,49 @@ editor_options:
 <p>If not specified, <code>workflowr</code> will add to the local site each of your analysis in the <code>analysis/</code> folder.</p>
 <p>Then, if you are ready to put it online, simply choose which analysis you want to publish and run the following:</p>
 <pre class="r"><code>wflow_publish(c(&quot;analysis/index.Rmd&quot;, &quot;analysis/license.Rmd&quot;))</code></pre>
+<p>This creates a commit and at the next push git will trigger the action to build the site.</p>
 </div>
 <div id="structure-site-file-_site.yml" class="section level2">
 <h2>Structure site file <code>_site.yml</code></h2>
+<p>The design of the site which will host analysis is defined by the <code>_site.yml</code>.</p>
+<p>The most important things you can customize are the <strong>theme</strong>, the <strong>navigation bar</strong>, which <strong>analysis</strong> has to be shown and where (and any HTML file too) and the <strong>footer</strong>. <a href="https://jdblischak.github.io/workflowrBeta/articles/wflow-02-customization.html" target="_blank"><strong>Here</strong></a> you can find more information.</p>
+<p>While I am writing this document, the <code>_site.yml</code> of this site is the following:</p>
+<pre class="r"><code>name: &quot;Rduinoiot-analysis&quot;
+output_dir: ../docs
+navbar:
+  title: &quot;Rduinoiot-analysis&quot;
+  left:
+  - text: Home
+    href: index.html
+  - text: Weather report
+    href: weather-report.html
+  - text: License
+    href: license.html
+output:
+  workflowr::wflow_html:
+    toc: true
+    toc_float: yes
+    theme: flatly
+    highlight: textmate
+    css: style.css
+editor_options:
+  chunk_output_type: console</code></pre>
+<p>A <code>style.css</code> file is stored under <code>docs</code> subdirectory for additional graphical customization.</p>
 </div>
 </div>
 <div id="flexdashboard" class="section level1">
 <h1>Flexdashboard</h1>
-<p><a href="https://pkgs.rstudio.com/flexdashboard/" target="_blank"><strong>Flexdashboard</strong></a></p>
+<p><a href="https://pkgs.rstudio.com/flexdashboard/" target="_blank"><strong>Flexdashboard</strong></a> is an <code>R</code> package which allows to easily develop dashboards as you were writing a simple <code>rmarkdown</code> document.</p>
+<p>I confess that I always had prefered <code>Shiny apps</code> for their interactivity, but they require a server and the graphical needs of my app exceeded the RAM constraint of <a href="https://www.shinyapps.io/" target="_blank"><strong>shinyapps.io</strong></a> free plan.</p>
+<p>However, even if not real time and without user interaction, refreshing the <code>flexdashboard</code> with new data driven by free <code>github actions</code> did the trick. Furthermore, having analysis together with documentation in a <code>workflowr</code> site seemed pretty cool.</p>
+<p><img src="images/weather-report.png" /></p>
+<p>As usual, creating a <code>flexdashboard</code> is straight-forward: if you have the package installed, in <strong>Rstudio</strong> choose new <em>R Markdown…</em> &gt; <em>From template</em> &gt; <em>Flex dashboard</em>. Again, the header is very important and you will note that, when comparing with the <code>workflower</code> earlied showed, you will see:</p>
+<pre class="r"><code>---
+...
+output: 
+  flexdashboard::flex_dashboard:
+...
+---</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
