@@ -75,11 +75,17 @@ The package is called [**Rduinoiot**](https://flavioleccese92.github.io/Rduinoio
 # Workflowr
 [**Workflowr**](https://workflowr.github.io/workflowr/){target="_blank"} is an `R` 
 package that supports you in creating an **organized**, **reproducible** and **shareable**
-project.
+project on **Github** or **Gitlab**.
 
 Practically speaking, when opening RStudio to start a new project, if you
 have Worflowr installed, you will see a new option. By chosing it, you are creating
 automatically a git-versioned project with organized subdirectories. 
+
+To tell Worflowr which git account to use, run the function:
+
+```{r eval=FALSE, include=TRUE}
+wflow_git_config(user.name = "Full Name", user.email = "email@domain")
+```
 
 Then you can create rmarkdown analyses and make them accessible by a customizable
 website hosted for free on Github or Gitlab.
@@ -137,7 +143,72 @@ publish and run the following:
 wflow_publish(c("analysis/index.Rmd", "analysis/license.Rmd"))
 ```
 
+This creates a commit and at the next push git will trigger the action to build the
+site.
+
 ## Structure site file `_site.yml`
 
+The design of the site which will host analysis is defined by the `_site.yml`.
+
+The most important things you can customize are the **theme**, the **navigation bar**, 
+which **analysis** has to be shown and where (and any HTML file too) and the **footer**.
+[**Here**](https://jdblischak.github.io/workflowrBeta/articles/wflow-02-customization.html){target="_blank"}
+you can find more information.
+
+While I am writing this document, the `_site.yml` of this site is the following:
+
+```{r eval=FALSE, include=TRUE}
+name: "Rduinoiot-analysis"
+output_dir: ../docs
+navbar:
+  title: "Rduinoiot-analysis"
+  left:
+  - text: Home
+    href: index.html
+  - text: Weather report
+    href: weather-report.html
+  - text: License
+    href: license.html
+output:
+  workflowr::wflow_html:
+    toc: true
+    toc_float: yes
+    theme: flatly
+    highlight: textmate
+    css: style.css
+editor_options:
+  chunk_output_type: console
+```
+
+A `style.css` file is stored under `docs` subdirectory for additional graphical customization. 
+
 # Flexdashboard
-[**Flexdashboard**](https://pkgs.rstudio.com/flexdashboard/){target="_blank"}
+[**Flexdashboard**](https://pkgs.rstudio.com/flexdashboard/){target="_blank"} is an `R` package 
+which allows to easily develop dashboards as you were writing a simple `rmarkdown` document.
+
+I confess that I always had prefered `Shiny apps` for their interactivity, but they require
+a server and the graphical needs of my app exceeded the RAM constraint of [**shinyapps.io**](https://www.shinyapps.io/){target="_blank"} free plan.
+
+However, even if not real time and without user interaction, refreshing the `flexdashboard`
+with new data driven by free `github actions` did the trick. Furthermore, having 
+analysis together with documentation in a `workflowr` site seemed pretty cool.
+
+![](images/weather-report.png)
+
+As usual, creating a `flexdashboard` is straight-forward: if you have the package 
+installed, in **Rstudio** choose new *R Markdown...* > *From template* > *Flex dashboard*.
+Again, the header is very important and you will note that, when comparing with 
+the `workflower` earlied showed, you will see:
+
+```{r eval=FALSE, include=TRUE}
+---
+...
+output: 
+  flexdashboard::flex_dashboard:
+...
+---
+```
+
+
+
+
