@@ -24,14 +24,18 @@ very active and smart.
 [**Here**](https://create.arduino.cc/projecthub/){target="_blank"} you can find many projects,
 including Home Automation, Robotics and even more.
 
+<div style="margin-top:20px; margin-bottom:20px;">
 ![](images/arduino-projects.png)
+</div>
 
 To me as a data scientist with a statistical background, electronics is a black box, for
 this reason I chose to a 99% plug-and-play solution: Arduino Oplà IoT Kit.
 
 If you want to know more, here's a video introducing you the kit:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/livKtMZQMS8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="margin: 0 auto; display: block; padding: 20px;"></iframe>
+<div style="margin-top:20px; margin-bottom:20px;">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/livKtMZQMS8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="margin: 0 auto; display: block"></iframe>
+</div>
 
 The kit comes with 4 integrated sensor measuring **Humidity**, **Pressure**, 
 **Temperature** and **Light**.
@@ -70,7 +74,9 @@ Furthermore, in order to make it easier to access [**Arduino Iot Cloud API **](h
 `R` package through [**pkgdown**](https://pkgdown.r-lib.org/){target="_blank"}.
 The package is called [**Rduinoiot**](https://flavioleccese92.github.io/Rduinoiot/){target="_blank"} and can be found on `CRAN`.
 
+<div style="margin-top:20px; margin-bottom:20px;">
 ![](images/environment-setup.png)
+</div>
 
 # Workflowr
 [**Workflowr**](https://workflowr.github.io/workflowr/){target="_blank"} is an `R` 
@@ -88,7 +94,7 @@ wflow_git_config(user.name = "Full Name", user.email = "email@domain")
 ```
 
 Then you can create rmarkdown analyses and make them accessible by a customizable
-website hosted for free on Github or Gitlab.
+website hosted for free on **Github** or **Gitlab**.
 
 The two type of files relevant for a workflowr site are `*.Rmd`s and `_site.yml`.
 
@@ -146,6 +152,14 @@ wflow_publish(c("analysis/index.Rmd", "analysis/license.Rmd"))
 This creates a commit and at the next push git will trigger the action to build the
 site.
 
+The last step to have our site online is to go on our Git (in this case, **Github**)
+project, go to *Settings* > *Pages* and under *Source*, select `Deploy from branch`.
+Then select `main` and as a folder `/docs` and save.
+
+<div style="margin-top:20px; margin-bottom:20px;">
+![](images/github-pages.png)
+</div>
+
 ## Structure site file `_site.yml`
 
 The design of the site which will host analysis is defined by the `_site.yml`.
@@ -180,7 +194,7 @@ editor_options:
   chunk_output_type: console
 ```
 
-A `style.css` file is stored under `docs` subdirectory for additional graphical customization. 
+A `style.css` file is stored under subdirectory */docs* for additional graphical customization. 
 
 # Flexdashboard
 [**Flexdashboard**](https://pkgs.rstudio.com/flexdashboard/){target="_blank"} is an `R` package 
@@ -193,12 +207,14 @@ However, even if not real time and without user interaction, refreshing the `fle
 with new data driven by free `github actions` did the trick. Furthermore, having 
 analysis together with documentation in a `workflowr` site seemed pretty cool.
 
+<div style="margin-top:20px; margin-bottom:20px;">
 ![](images/weather-report.png)
+</div>
 
 As usual, creating a `flexdashboard` is straight-forward: if you have the package 
 installed, in **Rstudio** choose new *R Markdown...* > *From template* > *Flex dashboard*.
 Again, the header is very important and you will note that, when comparing with 
-the `workflower` earlied showed, you will see:
+the `workflowr` earlied showed, you will see:
 
 ```{r eval=FALSE, include=TRUE}
 ---
@@ -209,6 +225,107 @@ output:
 ---
 ```
 
+You can customize this dashboard seemengly to the common `rmarkdown` documents.
+If you want to have an idea, give a look at the
+[file](https://github.com/FlavioLeccese92/Rduinoiot-analysis/blob/main/dashboard/weather-report.Rmd){target="_blank"}
+which generates the **Weather report** analysis from my Arduino's sensors. The file 
+is stored under subdirectory */dashboard*.
+
+# Github actions
+
+The last piece we need to get everything working is to automatize our scripts, 
+in order to have the dashboard updated every 15 minutes with fresh new data from 
+Arduino. In order to do that, we use
+[**Github actions**](https://github.com/features/actions){target="_blank"}!
+
+We would want to automatize two **jobs**:
+
+## 1. `refresh-data.R`
+
+As you expect, this `R` script is in charge of getting new data
+from Arduino. It reads the old data and starting from the most recent data timestamp
+loop over sensors until current time. Then it overwrites the old dataset with a new
+`.rds` under the subdirectory */data*.
+
+## 2. `deploy-dashboard.R`
+
+This other `R` script makes sure that a new **flexdashboard**
+is created and moved under the subdirectory *docs* where `workflowr` site is built.
+In doing that we are mapping the dashboard right inside the documentation site!
+
+```{r eval=FALSE, include=TRUE}
+library(rmarkdown)
+render("dashboard/weather-report.Rmd")
+file.rename("dashboard/weather-report.html", "docs/weather-report.html")
+```
+
+Both files are stored under the subdirectory */jobs*.
+
+*Next development*: Embed a `flexdashboard` document inside a `workflowr` analysis.
+In doing that we would have a versioned dashboard which can be useful in some situation.
+
+**OK. But how do we automatize these scripts? Once again, we have to define a proper `.yml` file.**
 
 
+## 3. `schedule-commit.yaml`
 
+First of all I decided to place the file under the subdirectory *.github/workflows*
+in case I needed to trigger more actions in the future.
+
+### Set up API *secrets*
+
+An essential and preliminary step is to set up `ARDUINO_API_CLIENT_ID` and `ARDUINO_API_CLIENT_SECRET`,
+so that `Rduinoiot` package will be able to retrieve the data through the API.
+Since we want them to be secret, we cannot send them together with the `refresh-data.R` 
+script. 
+
+**Github** allow us to define environments where the jobs will run and inside
+these environments we can define the so called `secrets`.
+For doing that, go to *Settings* > *Environments* > *New Environment*, chose a name 
+for your environment and click *Configure environment*. Scrolling down the 
+configuration page you will see:
+
+<div style="margin-top:20px; margin-bottom:20px;">
+![](images/environment-secret-add.png)
+</div>
+
+Then you need to choose a name for your *secret* and fill in the value. 
+Once you have done, going to *Settings* > *Environments* you will see your new environment
+with 2 *secrets*.
+
+<div style="margin-top:20px; margin-bottom:20px;">
+![](images/environment-secret-added.png)
+</div>
+
+We will now see separately each part of the `.yml` file but  [here](https://github.com/FlavioLeccese92/Rduinoiot-analysis/blob/main/.github/workflows/schedule-commit.yaml){target="_blank"} you can find the full script.
+
+1. We give a name to the action and we tell `github actions` when the script needs
+to run. In this case we scheduled every 15 minutes but also we want it to run 
+every time a new push occurs on *main* branch, so we will make sure to have 
+a potential quick failure after changes.
+
+```{r eval=FALSE, include=TRUE}
+name: rduinoiot-jobs
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  push:
+    branches:
+    - main
+```
+
+2. We define our jobs. In our case, a single job named **refresh-data** (with 2 `R` scripts).
+We tell **Github** to run the job on a macos system and on the environment called
+*rduinoiot-jobs-environment* on **Github**. This is very important
+
+```{r eval=FALSE, include=TRUE}
+jobs:
+  refresh-data:
+# The type of runner that the job will run on
+    runs-on: macos-latest
+    environment: rduinoiot-jobs-environment
+# Load repo and install R
+    steps:
+    - uses: actions/checkout@master
+    - uses: r-lib/actions/setup-r@master
+```

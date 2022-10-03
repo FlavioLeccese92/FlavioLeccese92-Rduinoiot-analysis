@@ -14,11 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - uses: r-lib/actions/setup-r@master
-# Install Pandoc
-    - name: Install Pandoc
-      run: |
-        brew install pandoc
-      shell: bash
+    - uses: r-lib/actions/setup-pandoc@v2
 # Load API key into Renviron
     - name: Load API key
       env:
