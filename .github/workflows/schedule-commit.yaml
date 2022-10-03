@@ -27,7 +27,7 @@ jobs:
         echo "cat .Renviron"
         cat .Renviron
       shell: bash
-# Set-up R
+# Install R packages
     - name: Install packages
       run: |
         install.packages(c("Rduinoiot", "dplyr", "tibble","lubridate"), repos = "https://cloud.r-project.org")
