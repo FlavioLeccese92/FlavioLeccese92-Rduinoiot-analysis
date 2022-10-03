@@ -360,7 +360,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -369,7 +369,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -381,7 +381,7 @@ div.tocify {
 <strong>Last updated:</strong> 2022-10-03
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>Rduinoiot-analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -397,12 +397,12 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
 </div>
 </div>
 </div>
@@ -469,16 +469,16 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomFlavioLeccese92Rduinoiotanalysistree69e0fa6e09827e97b43d2f3dcea9549b16e59384targetblank69e0fa6a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/FlavioLeccese92/Rduinoiot-analysis/tree/69e0fa6e09827e97b43d2f3dcea9549b16e59384" target="_blank">69e0fa6</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomFlavioLeccese92Rduinoiotanalysistreeeab212286fadd9ba454a489d03e920aee1a2083ctargetblankeab2122a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/FlavioLeccese92/Rduinoiot-analysis/tree/eab212286fadd9ba454a489d03e920aee1a2083c" target="_blank">eab2122</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomFlavioLeccese92Rduinoiotanalysistree69e0fa6e09827e97b43d2f3dcea9549b16e59384targetblank69e0fa6a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomFlavioLeccese92Rduinoiotanalysistreeeab212286fadd9ba454a489d03e920aee1a2083ctargetblankeab2122a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/FlavioLeccese92/Rduinoiot-analysis/tree/69e0fa6e09827e97b43d2f3dcea9549b16e59384" target="_blank">69e0fa6</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/FlavioLeccese92/Rduinoiot-analysis/tree/eab212286fadd9ba454a489d03e920aee1a2083c" target="_blank">eab2122</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -489,7 +489,7 @@ Ignored files:
     Ignored:    .Rproj.user/
 
 Unstaged changes:
-    Modified:   analysis/index.Rmd
+    Modified:   .github/workflows/schedule-commit.yaml
 
 </code></pre>
 <p>
@@ -528,6 +528,57 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/FlavioLeccese92/Rduinoiot-analysis/blob/eab212286fadd9ba454a489d03e920aee1a2083c/analysis/index.Rmd" target="_blank">eab2122</a>
+</td>
+<td>
+FlavioLeccese92
+</td>
+<td>
+2022-10-03
+</td>
+<td>
+wflow_publish(“analysis/index.Rmd”)
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/FlavioLeccese92/Rduinoiot-analysis/blob/cbc289a8a577dff0cbfd967fc80b8a47e61f4830/analysis/index.Rmd" target="_blank">cbc289a</a>
+</td>
+<td>
+FlavioLeccese92
+</td>
+<td>
+2022-10-03
+</td>
+<td>
+<a href="mailto:r-lib/actions/setup-pandoc@v2" class="email">r-lib/actions/setup-pandoc@v2</a>
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/FlavioLeccese92/Rduinoiot-analysis/cbc289a8a577dff0cbfd967fc80b8a47e61f4830/docs/index.html" target="_blank">cbc289a</a>
+</td>
+<td>
+FlavioLeccese92
+</td>
+<td>
+2022-10-03
+</td>
+<td>
+<a href="mailto:r-lib/actions/setup-pandoc@v2" class="email">r-lib/actions/setup-pandoc@v2</a>
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -892,7 +943,7 @@ the first commit
 <p>The kit comes with 4 integrated sensor measuring <strong>Humidity</strong>, <strong>Pressure</strong>, <strong>Temperature</strong> and <strong>Light</strong>.</p>
 <p>Starting to collect data from these sensor is very simple: you just need to deploy an appropriate <em>sketch</em> to the mother board, which can be done through the dedicated IDE or a guided procedure.</p>
 <p>Once everything is set up, you will have data flowing from sensors to the cloud and visibile via a dashboard hosted on <a href="https://create.arduino.cc/iot/" target="_blank"><strong>Arduino Cloud</strong></a>, free for 12 months with the kit purchase. <a href="https://create.arduino.cc/iot/dashboards/9d492935-cf9c-4947-83f9-f9426ac1d20b/" target="_blank"><strong>Here</strong></a> you can access mine to have an idea.</p>
-<p><strong>Data are stored into a cloud database and retrival of data is possible throught an API which can be queried, guess what…</strong></p>
+<p>Data are stored into a cloud database and retrival of data is possible throught an API which can be queried, guess what…</p>
 <center>
 <font size="5"><strong>with <code>R</code>!</strong></font>
 </center>
@@ -905,7 +956,7 @@ the first commit
 </div>
 <div id="project-setup" class="section level1">
 <h1>Project setup</h1>
-<p>The <code>R</code> ecosystem is constantly growing, adding new amazing productive tools such as <a href="https://workflowr.github.io/workflowr/" target="_blank"><strong>Workflowr</strong></a> and <a href="https://pkgs.rstudio.com/flexdashboard/" target="_blank"><strong>Flexdashboard</strong></a>, which perfectly exploit <a href="https://github.com/features/actions" target="_blank"><strong>Github actions</strong></a> in order to automatize their scope.</p>
+<p>The <code>R</code> ecosystem is constantly growing, adding new amazing productive tools such as <a href="https://workflowr.github.io/workflowr/" target="_blank"><strong>Workflowr</strong></a> and <a href="https://pkgs.rstudio.com/flexdashboard/" target="_blank"><strong>Flexdashboard</strong></a>, which perfectly exploit <a href="https://github.com/features/actions/" target="_blank"><strong>Github actions</strong></a> in order to automatize their scope.</p>
 <p>Furthermore, in order to make it easier to access <a href="https://www.arduino.cc/reference/en/iot/api/" target="_blank"><strong>Arduino Iot Cloud API </strong></a>, I developed an <code>R</code> package through <a href="https://pkgdown.r-lib.org/" target="_blank"><strong>pkgdown</strong></a>. The package is called <a href="https://flavioleccese92.github.io/Rduinoiot/" target="_blank"><strong>Rduinoiot</strong></a> and can be found on <code>CRAN</code>.</p>
 <div style="margin-top:20px; margin-bottom:20px;">
 <p><img src="images/environment-setup.png" /></p>
@@ -917,13 +968,13 @@ the first commit
 <p>Practically speaking, when opening RStudio to start a new project, if you have Worflowr installed, you will see a new option. By chosing it, you are creating automatically a git-versioned project with organized subdirectories.</p>
 <p>To tell Worflowr which git account to use, run the function:</p>
 <pre class="r"><code>wflow_git_config(user.name = &quot;Full Name&quot;, user.email = &quot;email@domain&quot;)</code></pre>
-<p>Then you can create rmarkdown analyses and make them accessible by a customizable website hosted for free on <strong>Github</strong> or <strong>Gitlab</strong>.</p>
+<p>Then you can create <code>rmarkdown</code> analyses and make them accessible by a customizable website hosted for free on <strong>Github</strong> or <strong>Gitlab</strong>.</p>
 <p>The two type of files relevant for a workflowr site are <code>*.Rmd</code>s and <code>_site.yml</code>.</p>
 <div id="analysis-files-.rmd" class="section level2">
 <h2>Analysis files <code>*.Rmd</code></h2>
-<p>Any type of rmarkdown file can be added to your site. Only restriction, of course, is that your files cannot be <code>shiny</code> markdowns since they need a server to process live user interactions and in our setup we do not have it, so avoid <code>runtime: shiny</code>. Rmarkdown files are static html and usually not optimal for reporting analysis of data which require frequent updates. Additionally, for my porpuse an ordinary markdown would not have satisfied my graphical obsession.</p>
+<p>Any type of <code>rmarkdown</code> file can be added to your site. Only restriction, of course, is that your files cannot be <code>shiny</code> markdowns since they need a server to process live user interactions and in our setup we do not have it, so avoid <code>runtime: shiny</code>. <code>rmarkdown</code> files are static html and usually not optimal for reporting analysis of data which require frequent updates. Additionally, for my porpuse an ordinary markdown would not have satisfied my graphical obsession.</p>
 <p>For these two reasons, I decided to go with <code>flexdashboard</code> (to obtain a catchy but static report) + <code>github actions</code> (to update the static HTML with new data every 15 minutes). But we will talk about it later in this document.</p>
-<p>The most important part of the rmarkdown is the <strong>header</strong>, which will be automatically generated by workflowr and is customizable:</p>
+<p>The most important part of the <code>rmarkdown</code> is the <strong>header</strong>, which will be automatically generated by workflowr and is customizable:</p>
 <pre class="r"><code>---
 title: &quot;Using R to visualize Arduino-iot weather sensor data&quot;
 site: workflowr::wflow_site
@@ -1001,20 +1052,25 @@ output:
 <div id="refresh-data.r" class="section level2">
 <h2>1. <code>refresh-data.R</code></h2>
 <p>As you expect, this <code>R</code> script is in charge of getting new data from Arduino. It reads the old data and starting from the most recent data timestamp loop over sensors until current time. Then it overwrites the old dataset with a new <code>.rds</code> under the subdirectory <em>/data</em>.</p>
+<p>Packages used are: <a href="https://flavioleccese92.github.io/Rduinoiot/" target="_blank"><strong>Rduinoiot</strong></a>, <a href="https://tibble.tidyverse.org/" target="_blank"><strong>tibble</strong></a>, <a href="https://dplyr.tidyverse.org/" target="_blank"><strong>dplyr</strong></a> and <a href="https://lubridate.tidyverse.org/" target="_blank"><strong>lubridate</strong></a>.</p>
 </div>
 <div id="deploy-dashboard.r" class="section level2">
 <h2>2. <code>deploy-dashboard.R</code></h2>
 <p>This other <code>R</code> script makes sure that a new <strong>flexdashboard</strong> is created and moved under the subdirectory <em>docs</em> where <code>workflowr</code> site is built. In doing that we are mapping the dashboard right inside the documentation site!</p>
+<p>Package used is <a href="https://rmarkdown.rstudio.com/" target="_blank"><strong>rmarkdown</strong></a>.</p>
 <pre class="r"><code>library(rmarkdown)
 render(&quot;dashboard/weather-report.Rmd&quot;)
 file.rename(&quot;dashboard/weather-report.html&quot;, &quot;docs/weather-report.html&quot;)</code></pre>
 <p>Both files are stored under the subdirectory <em>/jobs</em>.</p>
-<p><em>Next development</em>: Embed a <code>flexdashboard</code> document inside a <code>workflowr</code> analysis. In doing that we would have a versioned dashboard which can be useful in some situation.</p>
-<p><strong>OK. But how do we automatize these scripts? Once again, we have to define a proper <code>.yml</code> file.</strong></p>
+<div id="future-development" class="section level3">
+<h3>Future development</h3>
+<p>Embed a <code>flexdashboard</code> document inside a <code>workflowr</code> analysis. In doing that we would have a versioned dashboard which can be useful in some situation.</p>
 </div>
-<div id="schedule-commit.yaml" class="section level2">
-<h2>3. <code>schedule-commit.yaml</code></h2>
-<p>First of all I decided to place the file under the subdirectory <em>.github/workflows</em> in case I needed to trigger more actions in the future.</p>
+</div>
+<div id="scheduler" class="section level2">
+<h2>3. Scheduler</h2>
+<p><strong>OK. But how do we automatize <code>R</code> scripts? Once again, we have to define a proper <code>.yml</code> file.</strong></p>
+<p>First of all I decided to place all the <code>R</code> scripts I want to schedule under the subdirectory <em>.github/workflows</em>, in case I needed to trigger more actions in the future.</p>
 <div id="set-up-api-secrets" class="section level3">
 <h3>Set up API <em>secrets</em></h3>
 <p>An essential and preliminary step is to set up <code>ARDUINO_API_CLIENT_ID</code> and <code>ARDUINO_API_CLIENT_SECRET</code>, so that <code>Rduinoiot</code> package will be able to retrieve the data through the API. Since we want them to be secret, we cannot send them together with the <code>refresh-data.R</code> script.</p>
@@ -1026,7 +1082,10 @@ file.rename(&quot;dashboard/weather-report.html&quot;, &quot;docs/weather-report
 <div style="margin-top:20px; margin-bottom:20px;">
 <p><img src="images/environment-secret-added.png" /></p>
 </div>
-<p>We will now see separately each part of the <code>.yml</code> file but <a href="https://github.com/FlavioLeccese92/Rduinoiot-analysis/blob/main/.github/workflows/schedule-commit.yaml" target="_blank">Here</a> you can find the full script.</p>
+</div>
+<div id="schedule-commit.yaml" class="section level3">
+<h3><code>schedule-commit.yaml</code></h3>
+<p>We will now see separately each part of the <code>.yml</code> file but <a href="https://github.com/FlavioLeccese92/Rduinoiot-analysis/blob/main/.github/workflows/schedule-commit.yaml" target="_blank">here</a> you can find the full script.</p>
 <ol style="list-style-type: decimal">
 <li>We give a name to the action and we tell <code>github actions</code> when the script needs to run. In this case we scheduled every 15 minutes but also we want it to run every time a new push occurs on <em>main</em> branch, so we will make sure to have a potential quick failure after changes.</li>
 </ol>
@@ -1038,7 +1097,7 @@ on:
     branches:
     - main</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li>We define our jobs. In our case, a single job named <strong>refresh-data</strong> (with 2 <code>R</code> scripts). We tell <strong>Github</strong> to run the job on a macos system and on the environment called <em>rduinoiot-jobs-environment</em> on <strong>Github</strong>. This is very important</li>
+<li>We define our jobs. In our case, a single job named <strong>refresh-data</strong> (with 2 <code>R</code> scripts). We tell <strong>Github</strong> to run the job on a macos system and on the environment called <em>rduinoiot-jobs-environment</em> on <strong>Github</strong> where we stored our <code>secrets</code>. Furthermore, under <em>steps</em> we use <code>actions/checkout@master</code> (documented <a href="https://github.com/actions/checkout/" target="_blank">here</a>), <code>r-lib/actions/setup-r@master</code> which installs and sets up <code>R</code> (<a href="https://github.com/r-lib/actions/tree/v2/setup-r/" target="_blank">here</a>) and <code>r-lib/actions/setup-pandoc@v2</code> which installs <strong>pandoc</strong>, needed to knit <code>rmarkdown</code> (<a href="https://github.com/r-lib/actions/tree/v2/setup-pandoc/" target="_blank">here</a>).</li>
 </ol>
 <pre class="r"><code>jobs:
   refresh-data:
@@ -1048,7 +1107,68 @@ on:
 # Load repo and install R
     steps:
     - uses: actions/checkout@master
-    - uses: r-lib/actions/setup-r@master</code></pre>
+    - uses: r-lib/actions/setup-r@master
+    - uses: r-lib/actions/setup-pandoc@v2</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Now we need to import <code>ARDUINO_API_CLIENT_ID</code> and <code>ARDUINO_API_CLIENT_SECRET</code> <em>secrets</em> from <em>rduinoiot-jobs-environment</em> into <code>.Renviron</code> where <code>R</code> will be able to retrieve them, allowing to use <code>Rduinoiot</code>’s functions. To check if everything is going well, we print the content of <code>.Renviron</code>.</li>
+</ol>
+<pre class="r"><code># Load API key into Renviron
+    - name: Load API key
+      env:
+        ARDUINO_API_CLIENT_ID: &#39;${{ secrets.ARDUINO_API_CLIENT_ID }}&#39;
+        ARDUINO_API_CLIENT_SECRET: &#39;${{ secrets.ARDUINO_API_CLIENT_SECRET }}&#39;
+      run: |
+        touch .Renviron
+        echo ARDUINO_API_CLIENT_ID=&quot;$ARDUINO_API_CLIENT_ID&quot; &gt;&gt; .Renviron
+        echo ARDUINO_API_CLIENT_SECRET=&quot;$ARDUINO_API_CLIENT_SECRET&quot; &gt;&gt; .Renviron
+        echo &quot;cat .Renviron&quot;
+        cat .Renviron
+      shell: bash</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Almost there. We install packages required by the two <code>R</code> scripts and run them!</li>
+</ol>
+<pre class="r"><code># Install R packages
+    - name: Install packages
+      run: |
+        install.packages(c(&quot;Rduinoiot&quot;, &quot;dplyr&quot;, &quot;tibble&quot;,&quot;lubridate&quot;), repos = &quot;https://cloud.r-project.org&quot;)
+        install.packages(c(&quot;rmarkdown&quot;, &quot;flexdashboard&quot;, &quot;echarts4r&quot;, &quot;htmltools&quot;), repos = &quot;https://cloud.r-project.org&quot;)
+      shell: Rscript {0}
+# Run R refresh-data
+    - name: Run refresh-data
+      run: Rscript jobs/refresh-data.R
+# Run R deploy-dashboard
+    - name: Run deploy-dashboard
+      run: Rscript jobs/deploy-dashboard.R</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>Finally we commit all the new files created with this process.</li>
+</ol>
+<pre class="r"><code># Add new files in data folder, commit along with other modified files, push
+    - name: Commit files
+      run: |
+        git config --local user.name actions-user
+        git config --local user.email &quot;actions@github.com&quot;
+        git add --force data/*
+        git commit -am &quot;GH ACTION Headlines $(date)&quot;
+        git push origin main
+      env:
+        REPO_KEY: ${{secrets.GITHUB_TOKEN}}
+        username: github-actions</code></pre>
+<center>
+<font size="5"><strong>…and we <code>R</code> done !</strong></font>
+</center>
+</div>
+</div>
+</div>
+<div id="conclusions" class="section level1">
+<h1>Conclusions</h1>
+<p>We learned how to exploit the combined power of <a href="https://workflowr.github.io/workflowr/" target="_blank"><strong>Workflowr</strong></a>, <a href="https://pkgs.rstudio.com/flexdashboard/" target="_blank"><strong>Flexdashboard</strong></a> and <a href="https://github.com/features/actions/" target="_blank"><strong>Github actions</strong></a> in order to deploy on <strong>Github</strong> a live dashboard for free, showing <a href="https://opla.arduino.cc/" target="_blank"><strong>Arduino Oplà Iot kit</strong></a>’s sensor values. We used <a href="https://flavioleccese92.github.io/Rduinoiot/" target="_blank"><strong>Rduinoiot</strong></a> to easily retrieve data. The dashboard is available <a href="https://flavioleccese92.github.io/Rduinoiot-analysis/weather-report.html/" target="_blank"><strong>Rduinoiot</strong></a> or clicking on the tab of this site <em>Weather report</em>.</p>
+<div style="margin-top:20px; margin-bottom:20px;">
+<p><img src="images/project-love.png" /></p>
+</div>
+<div id="future-development-1" class="section level3">
+<h3>Future development</h3>
+<p>Having real time weather data may be not that useful by itself. For this reason I am planning to dig into the <strong>prediction</strong> mode! The idea is to exploit weather stations placed nearby my house by <a href="https://www.arpae.it/" target="_blank"><strong>Arpae</strong></a>, the <em>Regional agency for prevention, environment and energy of Emilia-Romagna</em> (Italy). Since weather stations provide real time data but, disgracefully, not in a real API mode, I need to derive some workaround. In fact, <strong>Arpae</strong> allows user to get data through a <a href="https://simc.arpae.it/dext3r/" target="_blank"><strong>web service</strong></a> which, when queried data of interest, sends the data to an email.</p>
+<p>The idea is to automatize this procedure by sending the request and reading the data from email’s attachment. The <code>R</code> will be scheduled as an additional <em>job</em> called by <strong>Guthub action</strong> and I will be able to attempt weather predictions 🚀</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1073,18 +1193,21 @@ locale:
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
+other attached packages:
+[1] workflowr_1.7.0
+
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.9       rstudioapi_0.13  whisker_0.4      knitr_1.37      
- [5] magrittr_2.0.3   workflowr_1.7.0  R6_2.5.1         rlang_1.0.5     
- [9] fastmap_1.1.0    fansi_1.0.3      stringr_1.4.0    tools_4.1.0     
-[13] xfun_0.30        utf8_1.2.2       cli_3.4.0        git2r_0.30.1    
-[17] jquerylib_0.1.4  htmltools_0.5.3  rprojroot_2.0.2  yaml_2.3.5      
-[21] digest_0.6.29    tibble_3.1.8     lifecycle_1.0.2  later_1.3.0     
-[25] sass_0.4.2       vctrs_0.4.1      promises_1.2.0.1 fs_1.5.2        
-[29] cachem_1.0.6     glue_1.6.2       evaluate_0.15    rmarkdown_2.13  
-[33] stringi_1.7.6    bslib_0.4.0      compiler_4.1.0   pillar_1.8.1    
-[37] jsonlite_1.8.0   httpuv_1.6.6     pkgconfig_2.0.3 </code></pre>
-</div>
+ [1] Rcpp_1.0.9       compiler_4.1.0   pillar_1.8.1     bslib_0.4.0     
+ [5] later_1.3.0      git2r_0.30.1     jquerylib_0.1.4  tools_4.1.0     
+ [9] getPass_0.2-2    digest_0.6.29    jsonlite_1.8.0   evaluate_0.15   
+[13] tibble_3.1.8     lifecycle_1.0.2  pkgconfig_2.0.3  rlang_1.0.5     
+[17] cli_3.4.0        rstudioapi_0.13  yaml_2.3.5       xfun_0.30       
+[21] fastmap_1.1.0    httr_1.4.4       stringr_1.4.0    knitr_1.37      
+[25] fs_1.5.2         vctrs_0.4.1      sass_0.4.2       rprojroot_2.0.2 
+[29] glue_1.6.2       R6_2.5.1         processx_3.5.2   fansi_1.0.3     
+[33] rmarkdown_2.13   callr_3.7.0      magrittr_2.0.3   whisker_0.4     
+[37] ps_1.6.0         promises_1.2.0.1 htmltools_0.5.3  httpuv_1.6.6    
+[41] utf8_1.2.2       stringi_1.7.6    cachem_1.0.6    </code></pre>
 </div>
 </div>
 </div>
