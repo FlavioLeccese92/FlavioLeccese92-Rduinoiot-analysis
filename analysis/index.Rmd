@@ -231,6 +231,11 @@ If you want to have an idea, give a look at the
 which generates the **Weather report** analysis from my Arduino's sensors. The file 
 is stored under subdirectory */dashboard*.
 
+Packages used are:
+[**echarts4r**](https://echarts4r.john-coene.com/){target="_blank"},
+[**rmarkdown**](https://rmarkdown.rstudio.com/){target="_blank"} and
+[**htmltools**](https://rstudio.github.io/htmltools/){target="_blank"}.
+
 # Github actions
 
 The last piece we need to get everything working is to automatize our scripts, 
